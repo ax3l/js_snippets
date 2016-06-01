@@ -14,29 +14,35 @@ window.addEventListener("DOMContentLoaded", function() {
 
   // move all into cube
   var full = document.getElementById("col4_content");
-  oldHTML = full.innerHTML;
+
+  // replace umlaut (dah!)
+  oldHTML = full.innerHTML.replace(/\u00fc/g, "ue");
+
   full.innerHTML = '<div id="experiment"> \
     <div id="cube"> \
         <div class="face one"> \
+            \
+        </div> \
+        <div class="face two" > \
             ' + oldHTML + ' \
         </div> \
-        <div class="face two"> \
-            2\
-        </div> \
         <div class="face three"> \
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nwZuG-XtUDE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
+            <img alt="VCard" src="https://rawgit.com/ax3l/js_snippets/master/vcard.png" style="width: 300px; display: block; margin-left: auto; margin-right:auto; margin-top: 50px;" /> \
         </div> \
         <div class="face four"> \
-            4\
+            \
         </div> \
         <div class="face five"> \
-            5\
+            <iframe width="360" height="250" src="https://www.youtube-nocookie.com/embed/nwZuG-XtUDE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> \
         </div> \
         <div class="face six"> \
-            <img alt="VCard" src="https://rawgit.com/ax3l/js_snippets/master/vcard.png" /> \
+            \
         </div> \
     </div> \
     <style type="text/css"> \
+img { \
+  width: 120px; \
+} \
 #experiment {\
   -webkit-perspective: 800px; \
   -webkit-perspective-origin: 50% 200px; \
@@ -64,10 +70,9 @@ window.addEventListener("DOMContentLoaded", function() {
   height: 360px; \
   width: 360px; \
   padding: 20px; \
-  background-color: rgba(50, 50, 50, 0.7); \
-  font-size: 27px; \
+  background-color: rgba(230, 230, 230, 0.85); \
+  font-size: 85%; \
   line-height: 1em; \
-  color: #fff; \
   border: 1px solid #555; \
   border-radius: 3px; \
 } \
@@ -111,7 +116,9 @@ window.addEventListener("DOMContentLoaded", function() {
 }, false);
 
 
-// source: https://github.com/fofr/paulrhayes.com-experiments/tree/master/cube-3d
+// Cube CSS Awesomeness: thanks Paul Hayes!
+//   http://paulrhayes.com/2009-07/animated-css3-cube-interface-using-3d-transforms/
+//   source: https://github.com/fofr/paulrhayes.com-experiments/tree/master/cube-3d
 var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
     prop,
     el = document.createElement('div');
