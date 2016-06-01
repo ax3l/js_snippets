@@ -1,24 +1,22 @@
 window.addEventListener("DOMContentLoaded", function() {
-  document.body.style.backgroundColor="#EEE";
-  document.getElementById('col5').style.backgroundColor="#EEE";
-  document.getElementById('col4_content').style.backgroundColor="#EEE";
+  var portrait = document.getElementsByTagName("img")[0];
+  portrait.addEventListener("click", transformMe, false);
+});
 
-  // remove "Personal Homepage" link
-  var links = document.getElementsByTagName("a");
-  var i;
-  for(i = 0; i < links.length; ++i) {
-    if(links[i].href == "#"){
-      links[i].parentElement.removeChild(links[i]);
-    }
-  }
+function transformMe() { 
+    document.getElementsByTagName("img")[0].removeEventListener("click", transformMe);
 
-  // move all into cube
-  var full = document.getElementById("col4_content");
+    document.body.style.backgroundColor="#EEE";
+    document.getElementById('col5').style.backgroundColor="#EEE";
+    document.getElementById('col4_content').style.backgroundColor="#EEE";
 
-  // replace umlaut (dah!)
-  oldHTML = full.innerHTML.replace(/\u00fc/g, "ue");
+    // move all into cube
+    var full = document.getElementById("col4_content");
 
-  full.innerHTML = '<div id="experiment"> \
+    // replace umlaut (dah!)
+    oldHTML = full.innerHTML.replace(/\u00fc/g, "ue");
+
+    full.innerHTML = '<div id="experiment"> \
     <div id="cube"> \
         <div class="face one"> \
             \
@@ -40,7 +38,7 @@ window.addEventListener("DOMContentLoaded", function() {
         </div> \
     </div> \
     <style type="text/css"> \
-img { \
+img:first-of-type { \
   width: 120px; \
 } \
 #experiment {\
@@ -113,25 +111,23 @@ img { \
   transform: rotateX(-90deg) rotate(180deg) translateZ(200px); \
 } \
     </style>';
-}, false);
 
-
-// Cube CSS Awesomeness: thanks Paul Hayes!
-//   http://paulrhayes.com/2009-07/animated-css3-cube-interface-using-3d-transforms/
-//   source: https://github.com/fofr/paulrhayes.com-experiments/tree/master/cube-3d
-var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
+  // Cube CSS Awesomeness: thanks Paul Hayes!
+  //   http://paulrhayes.com/2009-07/animated-css3-cube-interface-using-3d-transforms/
+  //   source: https://github.com/fofr/paulrhayes.com-experiments/tree/master/cube-3d
+  var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
     prop,
     el = document.createElement('div');
 
-for(var i = 0, l = props.length; i < l; i++) {
+  for(var i = 0, l = props.length; i < l; i++) {
     if(typeof el.style[props[i]] !== "undefined") {
         prop = props[i];
         break;
     }
-}
+  }
 
-var xAngle = 0, yAngle = 0;
-document.body.addEventListener("keydown", function(evt) {
+  var xAngle = 0, yAngle = 0;
+  document.body.addEventListener("keydown", function(evt) {
     switch(evt.keyCode) {
         case 37: // left
             yAngle -= 90;
@@ -150,6 +146,7 @@ document.body.addEventListener("keydown", function(evt) {
             xAngle -= 90;
             evt.preventDefault();
             break;
-    };
-    document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
-});
+      };
+      document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+  });
+}
