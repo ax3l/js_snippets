@@ -17,4 +17,12 @@ window.addEventListener("DOMContentLoaded", function() {
     full.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nwZuG-XtUDE?rel=0&amp;showinfo=0&mp;autoplay=1" frameborder="0" allowfullscreen></iframe>';
   }, false);
 
+  // remove "Personal Homepage" link
+  var links = document.getElementsByTagName("a");
+  var i;
+  for(i = 0; i < links.len; ++i) {
+    if(links[i].href == "#"){
+      links[i].parentElement.removeChild(links[i]);
+    }
+  }
 }, false);
