@@ -38,7 +38,7 @@ function transformMe() {
         </div> \
     </div> \
     <style type="text/css"> \
-img:first-of-type { \
+td[rowspan="7"] > img { \
   width: 120px; \
 } \
 #experiment {\
