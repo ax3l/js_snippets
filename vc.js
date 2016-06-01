@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", function() {
   // remove "Personal Homepage" link
   var links = document.getElementsByTagName("a");
   var i;
-  for(i = 0; i < links.len; ++i) {
+  for(i = 0; i < links.length; ++i) {
     if(links[i].href == "#"){
       links[i].parentElement.removeChild(links[i]);
     }
