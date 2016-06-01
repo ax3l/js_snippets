@@ -6,4 +6,7 @@ window.addEventListener("DOMContentLoaded", function() {
   // add PIConGPU logo
   var content = document.getElementById("col4_content");
   content.innerHTML += "<img alt='PIConGPU' target='_blank' src='https://rawgit.com/ax3l/js_snippets/master/vcard.png' />";
+
+  // PIConGPU video
+  content.innerHTML += '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nwZuG-XtUDE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
 }, false);
