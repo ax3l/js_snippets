@@ -9,4 +9,12 @@ window.addEventListener("DOMContentLoaded", function() {
 
   // PIConGPU video
   // content.innerHTML += '<br /><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nwZuG-XtUDE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
+
+  // portrait event handler
+  var portrait = document.getElementsByTagName("img")[0];
+  portrait.addEventListener("dblclick", function() {
+    var full = document.getElementById("col4_content");
+    full.innerHTML = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nwZuG-XtUDE?rel=0&amp;showinfo=0&mp;autoplay=1" frameborder="0" allowfullscreen></iframe>';
+  }, false);
+
 }, false);
